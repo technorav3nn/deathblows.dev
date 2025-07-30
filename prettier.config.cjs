@@ -1,0 +1,17 @@
+/* eslint-disable tsdoc/syntax */
+/**
+ * @type {import('prettier').Options}
+ */
+module.exports = {
+	// eslint-disable-next-line @typescript-eslint/no-require-imports
+	useTabs: true,
+	singleQuote: false,
+	trailingComma: "es5",
+	printWidth: 130,
+	// plugins: ["prettier-plugin-tailwindcss"],
+	// // tailwindStylesheet: "./src/assets/css/tailwind.css",
+	// // tailwindConfig: "./tailwind.config.ts",
+	// tailwindFunctions: ["clsx", "cn", "tw"],
+	// tailwindPreserveWhitespace: true,
+	// tailwindPreserveDuplicates: false,
+};

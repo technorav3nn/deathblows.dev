@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "@nuxt/ui-pro";
+
+@theme {
+	--breakpoint-xs: 24rem;
+}
+
+button,
+[role="button"] {
+	cursor: pointer;
+}
+
+:disabled {
+	cursor: default;
+}

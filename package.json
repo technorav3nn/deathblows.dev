@@ -1,0 +1,45 @@
+{
+	"name": "nuxt-app",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"dependencies": {
+		"@leonardssh/use-lanyard": "patch:@leonardssh/use-lanyard@npm%3A1.0.4#~/.yarn/patches/@leonardssh-use-lanyard-npm-1.0.4-aff079da31.patch",
+		"@luolapeikko/result-option": "^1.0.0",
+		"@mharj/openweathermap": "^0.1.1",
+		"@nuxt/ui-pro": "patch:@nuxt/ui-pro@npm%3A3.2.0#~/.yarn/patches/@nuxt-ui-pro-npm-3.2.0-0f4aad1665.patch",
+		"@nuxthub/core": "0.9.0",
+		"@prequist/lanyard": "^1.1.0",
+		"better-sqlite3": "^12.2.0",
+		"date-fns": "^4.1.0",
+		"nuxt": "^4.0.1",
+		"vue": "^3.5.17",
+		"vue-router": "^4.5.1"
+	},
+	"packageManager": "yarn@4.9.2",
+	"engines": {
+		"node": "24.4.1",
+		"note": "managed using proto.tools"
+	},
+	"devDependencies": {
+		"@iconify-json/devicon": "^1.2.33",
+		"@iconify-json/logos": "^1.2.5",
+		"@iconify-json/simple-icons": "^1.2.44",
+		"@iconify-json/skill-icons": "^1.2.0",
+		"@nuxt/content": "^3.6.3",
+		"@nuxt/eslint": "^1.6.0",
+		"@vueuse/nuxt": "^13.5.0",
+		"eslint": "^9.31.0",
+		"eslint-plugin-format": "^1.0.1",
+		"prettier": "^3.6.2",
+		"prettier-plugin-tailwindcss": "^0.6.14",
+		"typescript": "^5.8.3",
+		"wrangler": "^4.26.1"
+	}
+}
