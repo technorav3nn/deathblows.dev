@@ -10,11 +10,9 @@
 		"postinstall": "nuxt prepare"
 	},
 	"dependencies": {
+		"@date-fns/tz": "^1.2.0",
 		"@leonardssh/use-lanyard": "patch:@leonardssh/use-lanyard@npm%3A1.0.4#~/.yarn/patches/@leonardssh-use-lanyard-npm-1.0.4-aff079da31.patch",
-		"@luolapeikko/result-option": "^1.0.0",
-		"@mharj/openweathermap": "^0.1.1",
-		"@nuxt/ui-pro": "patch:@nuxt/ui-pro@npm%3A3.2.0#~/.yarn/patches/@nuxt-ui-pro-npm-3.2.0-0f4aad1665.patch",
-		"@nuxthub/core": "0.9.0",
+		"@nuxt/ui-pro": "patch:@nuxt/ui-pro@npm%3A3.3.0#~/.yarn/patches/@nuxt-ui-pro-npm-3.3.0-6e42d46bf0.patch",
 		"@prequist/lanyard": "^1.1.0",
 		"better-sqlite3": "^12.2.0",
 		"date-fns": "^4.1.0",
@@ -29,7 +27,10 @@
 	},
 	"devDependencies": {
 		"@iconify-json/devicon": "^1.2.33",
+		"@iconify-json/fa-brands": "^1.2.1",
+		"@iconify-json/fa-solid": "^1.2.1",
 		"@iconify-json/logos": "^1.2.5",
+		"@iconify-json/lucide": "^1.2.59",
 		"@iconify-json/simple-icons": "^1.2.44",
 		"@iconify-json/skill-icons": "^1.2.0",
 		"@nuxt/content": "^3.6.3",

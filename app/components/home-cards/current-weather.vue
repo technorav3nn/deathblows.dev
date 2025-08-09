@@ -60,9 +60,16 @@ const CONDITION_TO_FIXED_CONDITION: Record<string, string> = {
 					<p class="text-lg font-semibold">{{ status === "success" ? `${weather?.main.temp.toFixed(0)}°` : "loading..." }}</p>
 				</div>
 				<p class="text-toned text-sm lowercase">
-					{{ status === "success" ? CONDITION_TO_FIXED_CONDITION[weather?.weather?.[0]?.description!] : "loading..." }}
+					{{
+						status === "success"
+							? (CONDITION_TO_FIXED_CONDITION[weather?.weather?.[0]?.description!] ?? weather?.weather?.[0]?.description!)
+							: "loading..."
+					}}
 				</p>
-				<p class="text-toned text-xs lowercase">Boston, MA</p>
+				<p class="text-[color-mix(in_srgb,currentColor_75%,transparent)] text-xs lowercase flex items-center gap-0.5">
+					<UIcon name="i-lucide-map-pin" class="size-3" />
+					Boston, MA
+				</p>
 			</div>
 		</div>
 	</UCard>

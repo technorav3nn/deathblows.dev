@@ -25,10 +25,10 @@ const {
 					<HomeCardsCurrentTime class="h-full" />
 				</div>
 				<div class="col-span-1 row-span-3 hidden md:block">
-					<HomeCardsStackCarousel class="h-full" />
+					<HomeCardsStackCarousel />
 				</div>
 				<div class="col-span-5 row-span-1 h-full md:hidden">
-					<HomeCardsStackCarousel class="h-full" />
+					<HomeCardsStackCarousel />
 				</div>
 				<div class="col-span-5 row-span-1 h-full">
 					<HomeCardsNowPlaying class="h-full" />

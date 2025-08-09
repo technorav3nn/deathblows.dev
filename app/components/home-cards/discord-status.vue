@@ -58,22 +58,28 @@ const ringForStatus = computed(
 							:class="`animate-pulse relative inline-flex size-2.5 rounded-full bg-linear-to-br ${gradientForStatusIndicator}`"
 						></span>
 					</span>
-					@{{ status === "success" ? presence?.discord_user?.username : "Loading..." }}
+					@yo.death
 				</p>
 
 				<p class="dark:text-text-toned/85 text-neutral-100 text-sm xs:text-nowrap wrap-break-word">{{ fixedStatus }}</p>
 			</div>
 		</div>
-		<div v-if="presence && presence.activities.length > 0 && presence.activities?.[0]?.name">
+		<div v-if="status === 'success' && presence && presence?.activities.length > 0 && presence?.activities?.[0]?.name">
 			<p class="text-xs dark:text-text-toned/85 text-neutral-100 max-xs:truncate">
 				<UIcon name="i-lucide-gamepad-2" class="dark:text-text-toned/85 text-neutral-100 size-4 align-middle" />
 				playing <span class="font-semibold">{{ presence.activities[0].name }}</span>
 			</p>
 		</div>
+		<div v-else-if="status === 'success' && presence && presence?.activities.length === 0">
+			<p class="text-xs flex items-center gap-1 dark:text-text-toned/85 text-neutral-100 max-xs:truncate">
+				<UIcon name="i-lucide-circle-off" class="dark:text-text-toned/85 text-neutral-100 size-4 align-middle" />
+				no activity
+			</p>
+		</div>
 		<div v-else>
-			<p class="text-xs dark:text-text-toned/85 text-neutral-100 max-xs:truncate">
+			<p class="text-xs flex items-center gap-1 dark:text-text-toned/85 text-neutral-100 max-xs:truncate">
 				<UIcon name="i-lucide-loader-2" class="dark:text-text-toned/85 text-neutral-100 size-4 align-middle animate-spin" />
-				loading
+				loading...
 			</p>
 		</div>
 	</NuxtLink>

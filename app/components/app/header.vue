@@ -2,31 +2,40 @@
 import type { NavigationMenuItem } from "@nuxt/ui";
 
 const open = ref(false);
+const route = useRoute();
 
 const items = computed<NavigationMenuItem[]>(() =>
-	[
-		{
-			label: "projects",
-			href: "/projects",
-		},
-		{
-			label: "blog",
-			href: "/blog",
-		},
-	].map((s) => ({
+	(
+		[
+			{
+				label: "projects",
+				href: "/projects",
+			},
+			{
+				label: "blog",
+				href: "/blog",
+			},
+		] as NavigationMenuItem[]
+	).map((s) => ({
 		...s,
 		onSelect: () => {
 			open.value = false;
 		},
+		active: route.path.startsWith((s.href ?? "") as string) || (s.href === "/blog" && route.path.startsWith("/blog/")),
 	}))
 );
 </script>
 
 <template>
-	<UHeader v-model:open="open" mode="drawer" :menu="{}" :ui="{ root: 'border-0 relative', toggle: 'xs:hidden!' }">
+	<UHeader
+		v-model:open="open"
+		mode="drawer"
+		:menu="{ class: 'h-[40vh]', shouldScaleBackground: true, setBackgroundColorOnScale: true }"
+		:ui="{ root: 'border-0 relative', toggle: 'xs:hidden!' }"
+	>
 		<template #title>
 			<div class="flex gap-x-2.5 items-center">
-				<img src="/profile-pic-circle.png" alt="Profile picture" class="rounded-full w-10 h-10" />
+				<img src="/profile-pic-circle.webp" alt="Profile picture" class="rounded-full w-10 h-10" />
 				<p class="text-lg font-bold" to="/">death_blows</p>
 			</div>
 		</template>
@@ -38,7 +47,7 @@ const items = computed<NavigationMenuItem[]>(() =>
 				variant="link"
 				:items="items"
 			/>
-			<UColorModeButton />
+			<UiBetterColorModeButton />
 		</template>
 
 		<template #body>

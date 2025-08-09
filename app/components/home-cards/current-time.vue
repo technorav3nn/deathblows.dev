@@ -8,13 +8,16 @@ useIntervalFn(() => {
 	estDate.value = getDate();
 }, 900);
 
-const formattedDate = computed(() => format(estDate.value, "h:mm aaa"));
+const formattedDate = computed(() => {
+	if (import.meta.prerender) return "...";
+	return format(estDate.value, "h:mm aaa");
+});
 </script>
 
 <template>
 	<UCard
 		:ui="{ body: 'h-full p-0 py-0.5' }"
-		class="rounded-xl bg-[linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url(/massachusetts.png)] dark:bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(/massachusetts.png)] bg-cover bg-center"
+		class="rounded-xl bg-[linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url(/massachusetts.webp)] dark:bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(/massachusetts.webp)] bg-cover bg-center"
 	>
 		<div class="text-center flex flex-col items-center justify-center mx-auto h-full">
 			<p class="font-bold light:text-neutral-100 text-lg">{{ formattedDate }}</p>

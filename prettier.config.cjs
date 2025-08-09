@@ -1,9 +1,7 @@
-/* eslint-disable tsdoc/syntax */
 /**
  * @type {import('prettier').Options}
  */
 module.exports = {
-	// eslint-disable-next-line @typescript-eslint/no-require-imports
 	useTabs: true,
 	singleQuote: false,
 	trailingComma: "es5",

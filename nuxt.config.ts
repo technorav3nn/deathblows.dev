@@ -17,6 +17,42 @@ export default defineNuxtConfig({
 			},
 		],
 	},
+	nitro: {
+		// preset: "netlify-edge",
+		preset: "cloudflare-module",
+		cloudflare: {
+			deployConfig: true,
+			wrangler: {
+				name: "deathblows-dev",
+				d1_databases: [{ binding: "DB", database_name: "deathblows-dev", database_id: "335aa661-8a83-4c2e-bdb5-a2c5c4f2732d" }],
+			},
+		},
+		prerender: {
+			routes: ["/"],
+			crawlLinks: true,
+		},
+	},
+	content: {
+		build: {
+			markdown: {
+				highlight: {
+					theme: {
+						dark: "catppuccin-mocha",
+						default: "catppuccin-latte",
+						light: "catppuccin-latte",
+					},
+				},
+			},
+		},
+	},
+	// routeRules: {
+	// 	"/_nuxt/**": {
+	// 		headers: { "Cache-Control": "public, max-age=31536000, immutable" },
+	// 	},
+	// 	"/**/*.webp": {
+	// 		headers: { "Cache-Control": "public, max-age=14400" },
+	// 	},
+	// },
 	experimental: {
 		asyncContext: true,
 		typedPages: true,

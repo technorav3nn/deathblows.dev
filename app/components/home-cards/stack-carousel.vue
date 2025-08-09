@@ -24,19 +24,17 @@ const [DefineCarouselItems, ReuseCarouselItems] = createReusableTemplate();
 
 <template>
 	<DefineCarouselItems>
-		<div v-for="item in items" :key="item.name">
-			<UTooltip :text="item.name" :delay-duration="0" :content="{ side: 'top' }">
-				<NuxtLink
-					external
-					:to="item.link"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="flex items-center justify-center size-10 shrink-0"
-				>
-					<UIcon :name="item.icon" class="size-10 shrink-0 w-full hover:scale-115 transition-transform" />
-				</NuxtLink>
-			</UTooltip>
-		</div>
+		<UTooltip v-for="item in items" :key="item.name" :text="item.name" :delay-duration="0" :content="{ side: 'top' }">
+			<NuxtLink
+				external
+				:to="item.link"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="flex items-center justify-center size-10 shrink-0"
+			>
+				<UIcon :name="item.icon" class="size-10 shrink-0 w-full hover:scale-115 transition-transform" />
+			</NuxtLink>
+		</UTooltip>
 	</DefineCarouselItems>
 
 	<UCard variant="subtle" class="rounded-xl overflow-hidden relative hidden md:block" :ui="{ body: 'p-0!' }">
