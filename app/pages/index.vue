@@ -2,6 +2,13 @@
 const {
 	global: { twitter, github },
 } = useAppConfig();
+
+const desc = "my personal website and home on the internet";
+
+useSeoMeta({
+	description: desc,
+	ogDescription: desc,
+});
 </script>
 
 <template>

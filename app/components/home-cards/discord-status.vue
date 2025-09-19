@@ -50,15 +50,15 @@ const ringForStatus = computed(
 		:class="`rounded-xl px-4 py-2 ring ring-default flex justify-between flex-col gap-1 bg-linear-to-br to-[100%] ${gradientForStatus} dark:to-transparent ${ringForStatus}`"
 	>
 		<div class="flex flex-row items-center gap-2 xs:gap-4 w-full">
-			<UIcon name="i-simple-icons-discord" class="size-7 light:text-neutral-100 shrink-0" />
+			<UIcon name="i-simple-icons-discord" class="size-6 light:text-neutral-100 shrink-0" />
 			<div class="flex flex-col xs:w-[94px]">
-				<p class="wrap-break-word dark:text-text-highlighted text-neutral-100 font-medium text-sm">
+				<p class="flex items-center gap-1 dark:text-text-highlighted text-neutral-100 font-medium text-xs">
 					<span class="relative inline-flex size-2.5">
 						<span
 							:class="`animate-pulse relative inline-flex size-2.5 rounded-full bg-linear-to-br ${gradientForStatusIndicator}`"
 						></span>
 					</span>
-					@yo.death
+					@death_blows
 				</p>
 
 				<p class="dark:text-text-toned/85 text-neutral-100 text-sm xs:text-nowrap wrap-break-word">{{ fixedStatus }}</p>
@@ -72,7 +72,7 @@ const ringForStatus = computed(
 		</div>
 		<div v-else-if="status === 'success' && presence && presence?.activities.length === 0">
 			<p class="text-xs flex items-center gap-1 dark:text-text-toned/85 text-neutral-100 max-xs:truncate">
-				<UIcon name="i-lucide-circle-off" class="dark:text-text-toned/85 text-neutral-100 size-4 align-middle" />
+				<UIcon name="i-lucide-circle-off" class="dark:text-text-toned text-neutral-100 size-4 align-middle" />
 				no activity
 			</p>
 		</div>

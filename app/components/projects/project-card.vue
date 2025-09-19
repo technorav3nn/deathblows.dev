@@ -7,7 +7,11 @@ defineProps<{
 </script>
 
 <template>
-	<div class="flex bg-elevated/50 w-full px-4 sm:py-2 py-4 rounded-lg group flex-col sm:flex-row items-stretch gap-6">
+	<UCard
+		:ui="{ body: 'px-4! sm:py-2! py-4! w-full' }"
+		variant="subtle"
+		class="flex w-full group flex-col sm:flex-row items-stretch gap-6"
+	>
 		<div class="flex flex-col justify-between py-2 gap-0 w-full">
 			<div class="flex flex-col sm:flex-row gap-4 w-full">
 				<img
@@ -62,5 +66,5 @@ defineProps<{
 				</div>
 			</div>
 		</div>
-	</div>
+	</UCard>
 </template>

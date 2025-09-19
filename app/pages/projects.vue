@@ -2,6 +2,15 @@
 const {
 	global: { projects },
 } = useAppConfig();
+
+const title = "projects";
+const description = "all the projects i've spent time on";
+useSeoMeta({
+	title,
+	description,
+	ogTitle: title,
+	ogDescription: description,
+});
 </script>
 
 <template>

@@ -1,9 +1,21 @@
 <script setup lang="ts">
 const colorMode = useColorMode();
 const color = computed(() => (colorMode.value === "dark" ? "#020618" : "white"));
+const route = useRoute();
 
-useSeoMeta({
-	titleTemplate: "%s - deathblows.dev",
+watchEffect(() => {
+	if (route.path === "/") {
+		const title = "deathblows.dev";
+		useSeoMeta({
+			title,
+			ogTitle: title,
+			titleTemplate: "%s",
+		});
+	} else {
+		useSeoMeta({
+			titleTemplate: "%s - deathblows.dev",
+		});
+	}
 });
 
 useHead({

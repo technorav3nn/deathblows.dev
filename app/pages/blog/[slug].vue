@@ -15,6 +15,12 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 	day: "numeric",
 	year: "numeric",
 });
+
+useSeoMeta({
+	title: post.value.title,
+	description: post.value.description,
+	titleTemplate: "%s - blog - deathblows.dev",
+});
 </script>
 
 <template>
