@@ -1,0 +1,5 @@
+{
+	"name": "deathblows-dev",
+	"compatibility_date": "2025-07-09",
+	"d1_databases": [{ "binding": "DB", "database_name": "deathblows-dev", "database_id": "335aa661-8a83-4c2e-bdb5-a2c5c4f2732d" }]
+}

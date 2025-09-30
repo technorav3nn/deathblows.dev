@@ -15,12 +15,19 @@ defineProps<{
 		<div class="flex flex-col justify-between py-2 gap-0 w-full">
 			<div class="flex flex-col sm:flex-row gap-4 w-full">
 				<img
+					v-if="project.image"
 					:src="project.image.src"
 					:alt="project.image.src"
 					width="64"
 					height="64"
 					class="object-contain size-[64px] self-center shrink-0"
 				/>
+				<div
+					v-else
+					class="size-[64px] dark:bg-muted bg-accented rounded-lg self-center shrink-0 flex justify-center items-center"
+				>
+					<UIcon name="i-lucide-ellipsis" class="size-6 mt-1" />
+				</div>
 
 				<div class="space-y-2 w-full">
 					<div class="flex items-center justify-between w-full">

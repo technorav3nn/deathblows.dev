@@ -1,3 +1,13 @@
+export async function useLastFmRecentTracks() {
+	const {
+		public: { lastFmApiKey, lastFmUsername },
+	} = useRuntimeConfig();
+	const { data: recentTracks } = await useFetch<LastFMResponseBody>(
+		`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastFmUsername}&api_key=${lastFmApiKey}&format=json`
+	);
+	return recentTracks;
+}
+
 /**
  * Copyright 2020 Alistair Smith
  *
@@ -9,7 +19,7 @@
  * `use-last-fm` package, which is licensed under the MIT license.
  * Source: {@link https://github.com/alii/use-last-fm/blob/master/src/index.ts}
  */
-export function useLastFm(refetchInterval?: number, imageSize: TrackImage["size"] = "extralarge"): ComputedRef<State> {
+export function useLastFmNowPlaying(refetchInterval?: number, imageSize: TrackImage["size"] = "extralarge"): ComputedRef<State> {
 	const {
 		public: { lastFmApiKey, lastFmUsername },
 	} = useRuntimeConfig();

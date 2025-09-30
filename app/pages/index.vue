@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const {
-	global: { twitter, github },
+	global: { twitter, github, roblox },
 } = useAppConfig();
 
 const desc = "my personal website and home on the internet";
@@ -14,7 +14,7 @@ useSeoMeta({
 <template>
 	<div>
 		<p class="text-muted">17 &#8226; he/him</p>
-		<h2 class="mt-2 text-md">software engineer and highschooler from the united states</h2>
+		<h2 class="mt-2 text-md">programmer and highschooler from the united states</h2>
 		<section class="mt-5 text-text-toned">
 			<p>things i like making:</p>
 			<ul class="list-disc ml-4">
@@ -44,7 +44,7 @@ useSeoMeta({
 					<HomeCardsCurrentWeather class="h-full" />
 				</div>
 				<div class="col-span-3 md:col-span-2 row-span-1 h-full">
-					<div class="grid gap-2 grid-rows-2 h-full *:rounded-xl">
+					<div class="grid gap-2 grid-rows-2 grid-cols-2 h-full *:rounded-xl">
 						<UButton
 							:to="twitter"
 							external
@@ -55,6 +55,7 @@ useSeoMeta({
 							class=""
 							color="info"
 							variant="subtle"
+							size="sm"
 						>
 							twitter
 						</UButton>
@@ -68,8 +69,23 @@ useSeoMeta({
 							class="dark:bg-[#1c1d1f] dark:hover:bg-[#222325] dark:ring-[#2e3134]"
 							color="neutral"
 							variant="subtle"
+							size="sm"
 						>
 							github
+						</UButton>
+						<UButton
+							:to="roblox"
+							external
+							target="_blank"
+							rel="noopener noreferrer"
+							block
+							icon="i-simple-icons-roblox"
+							class="col-span-2 dark:bg-[#222228] dark:hover:bg-[#27272d] dark:ring-[#2b2b33]"
+							color="neutral"
+							variant="subtle"
+							size="sm"
+						>
+							roblox
 						</UButton>
 					</div>
 				</div>

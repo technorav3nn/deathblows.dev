@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
 	compatibilityDate: "2025-07-15",
 	devtools: { enabled: true },
-	modules: ["@nuxt/ui-pro", "@nuxt/eslint", "@nuxt/content", "@vueuse/nuxt"],
+	modules: ["nitro-cloudflare-dev", "@nuxt/ui-pro", "@nuxt/eslint", "@nuxt/content", "@vueuse/nuxt"],
 	css: ["~/assets/css/main.css"],
 	eslint: {
 		config: {
@@ -18,18 +18,30 @@ export default defineNuxtConfig({
 		],
 	},
 	nitro: {
-		// preset: "netlify-edge",
 		preset: "cloudflare-module",
 		cloudflare: {
 			deployConfig: true,
-			wrangler: {
-				name: "deathblows-dev",
-				d1_databases: [{ binding: "DB", database_name: "deathblows-dev", database_id: "335aa661-8a83-4c2e-bdb5-a2c5c4f2732d" }],
-			},
+			nodeCompat: true,
+			// wrangler: {
+			// 	name: "deathblows-dev",
+			// 	d1_databases: [{ binding: "DB", database_name: "deathblows-dev", database_id: "335aa661-8a83-4c2e-bdb5-a2c5c4f2732d" }],
+			// },
 		},
 		prerender: {
 			routes: ["/"],
 			crawlLinks: true,
+		},
+		experimental: {
+			tasks: true,
+			database: true,
+		},
+		database: {
+			default: {
+				connector: "cloudflare-d1",
+				options: {
+					bindingName: "DB",
+				},
+			},
 		},
 	},
 	content: {

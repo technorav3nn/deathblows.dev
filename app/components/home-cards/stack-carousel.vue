@@ -14,6 +14,8 @@ const items = [
 	{ name: "node.js", icon: "i-logos-nodejs-icon", link: "https://nodejs.org/" },
 	{ name: "rust", icon: "i-logos-rust", link: "https://www.rust-lang.org/" },
 	{ name: "docker", icon: "i-logos-docker-icon", link: "https://www.docker.com/" },
+	{ name: "lua", icon: "i-logos-lua", link: "https://www.lua.org/" },
+	{ name: "luau", icon: "i-devicon-luau", link: "https://www.luau.org/" },
 	{ name: "postgresql", icon: "i-logos-postgresql", link: "https://www.postgresql.org/" },
 	{ name: "drizzle", icon: "i-simple-icons-drizzle", link: "https://orm.drizzle.team/" },
 	{ name: "prisma", icon: "i-skill-icons-prisma", link: "https://www.prisma.io/" },

@@ -4,19 +4,12 @@ import type { NavigationMenuItem } from "@nuxt/ui";
 const open = ref(false);
 const route = useRoute();
 
+const {
+	global: { headerLinks },
+} = useAppConfig();
+
 const items = computed<NavigationMenuItem[]>(() =>
-	(
-		[
-			{
-				label: "projects",
-				href: "/projects",
-			},
-			{
-				label: "blog",
-				href: "/blog",
-			},
-		] as NavigationMenuItem[]
-	).map((s) => ({
+	headerLinks.map((s) => ({
 		...s,
 		onSelect: () => {
 			open.value = false;
@@ -31,7 +24,7 @@ const items = computed<NavigationMenuItem[]>(() =>
 		v-model:open="open"
 		mode="drawer"
 		:menu="{ class: 'h-[40vh]', shouldScaleBackground: true, setBackgroundColorOnScale: true }"
-		:ui="{ root: 'border-0 relative', toggle: 'xs:hidden!' }"
+		:ui="{ root: 'border-0 relative', toggle: 'sm:hidden!' }"
 	>
 		<template #title>
 			<div class="flex gap-x-2.5 items-center">
@@ -42,7 +35,7 @@ const items = computed<NavigationMenuItem[]>(() =>
 
 		<template #right>
 			<UNavigationMenu
-				class="hidden xs:block"
+				class="hidden sm:block"
 				:ui="{ link: 'text-base px-[5px] font-normal', item: 'py-0!' }"
 				variant="link"
 				:items="items"

@@ -32,10 +32,10 @@ const gradientForStatusIndicator = computed(
 const ringForStatus = computed(
 	() =>
 		({
-			online: "dark:hover:ring-green-800 hover:ring-green-500",
-			idle: "dark:hover:ring-yellow-800 hover:ring-yellow-500",
-			dnd: "dark:hover:ring-red-800 hover:ring-red-500",
-			offline: "dark:hover:ring-zinc-800 hover:ring-zinc-500",
+			online: "dark:hover:ring-green-600 hover:ring-green-500",
+			idle: "dark:hover:ring-yellow-600 hover:ring-yellow-500",
+			dnd: "dark:hover:ring-red-600 hover:ring-red-500",
+			offline: "dark:hover:ring-zinc-600 hover:ring-zinc-500",
 		})[discordStatus.value] || "dark:hover:ring-zinc-800 hover:ring-zinc-500"
 );
 </script>
@@ -46,7 +46,7 @@ const ringForStatus = computed(
 		:to="`https://discord.com/users/${discordId}`"
 		target="_blank"
 		rel="noopener noreferrer"
-		class="hover:ring-[1.5px] transition-all ease-in-out"
+		class="hover:ring-[1.5px]"
 		:class="`rounded-xl px-4 py-2 ring ring-default flex justify-between flex-col gap-1 bg-linear-to-br to-[100%] ${gradientForStatus} dark:to-transparent ${ringForStatus}`"
 	>
 		<div class="flex flex-row items-center gap-2 xs:gap-4 w-full">
@@ -61,7 +61,9 @@ const ringForStatus = computed(
 					@death_blows
 				</p>
 
-				<p class="dark:text-text-toned/85 text-neutral-100 text-sm xs:text-nowrap wrap-break-word">{{ fixedStatus }}</p>
+				<p class="dark:text-text-toned/85 text-neutral-100 text-sm xs:text-nowrap wrap-break-word">
+					{{ fixedStatus.toLowerCase() }}
+				</p>
 			</div>
 		</div>
 		<div v-if="status === 'success' && presence && presence?.activities.length > 0 && presence?.activities?.[0]?.name">
@@ -72,7 +74,7 @@ const ringForStatus = computed(
 		</div>
 		<div v-else-if="status === 'success' && presence && presence?.activities.length === 0">
 			<p class="text-xs flex items-center gap-1 dark:text-text-toned/85 text-neutral-100 max-xs:truncate">
-				<UIcon name="i-lucide-circle-off" class="dark:text-text-toned text-neutral-100 size-4 align-middle" />
+				<UIcon name="i-lucide-moon-star" class="dark:text-text-toned text-neutral-100 size-4 align-middle" />
 				no activity
 			</p>
 		</div>
