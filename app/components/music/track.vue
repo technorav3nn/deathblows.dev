@@ -24,25 +24,13 @@ defineProps<{
 				<p class="text-xs font-semibold leading-4.5 truncate">
 					{{ track.name }}
 				</p>
-				<NuxtLink
-					:to="`https://www.last.fm/music/${track.artist['#text'].replaceAll(' ', '+')}`"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<p class="text-xs text-muted leading-4.5 truncate hover:underline">
-						{{ track.artist["#text"] }}
-					</p>
-				</NuxtLink>
-				<NuxtLink
-					v-if="track.album['#text']"
-					:to="`https://www.last.fm/music/${track.artist['#text'].replaceAll(' ', '+')}/_/${track.album['#text'].replaceAll(' ', '+')}`"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<p v-if="track.album['#text']" class="text-[10.5px] text-muted leading-4.5 truncate hover:underline">
-						{{ track.album["#text"] }}
-					</p>
-				</NuxtLink>
+				<p class="text-xs text-muted leading-4.5 truncate hover:underline">
+					{{ track.artist["#text"] }}
+				</p>
+
+				<p v-if="track.album['#text']" class="text-[10.5px] text-muted leading-4.5 truncate hover:underline">
+					{{ track.album["#text"] }}
+				</p>
 			</div>
 		</UCard>
 	</NuxtLink>

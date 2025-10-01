@@ -30,7 +30,7 @@ const tracks = await useLastFmRecentTracks();
 		</div>
 		<p class="text-muted text-sm mb-2">recent tracks</p>
 		<div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3.5">
-			<MusicTrack v-for="track in tracks" :key="track.mbid" class="w-full h-full" :track="track" />
+			<MusicTrack v-for="(track, index) in tracks" :key="track.mbid" :index class="w-full h-full" :track="track" />
 		</div>
 	</div>
 </template>
