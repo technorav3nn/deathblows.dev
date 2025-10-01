@@ -18,6 +18,7 @@ defineProps<{
 					v-if="project.image"
 					:src="project.image.src"
 					:alt="project.image.src"
+					decoding="async"
 					width="64"
 					height="64"
 					class="object-contain size-[64px] self-center shrink-0"

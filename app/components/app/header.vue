@@ -36,9 +36,17 @@ const items = computed<NavigationMenuItem[]>(() =>
 		<template #right>
 			<UNavigationMenu
 				class="hidden sm:block"
-				:ui="{ link: 'text-base px-[5px] font-normal', item: 'py-0!' }"
+				:ui="{
+					link: 'text-base px-[5px] font-normal text-(--ui-text) data-[active]:text-(--ui-primary) gap-1',
+					item: 'py-0!',
+					list: 'gap-x-0',
+					linkTrailingIcon: 'size-4 mt-0.5',
+					content: 'w-60!',
+					viewportWrapper: 'w-[unset]!',
+				}"
 				variant="link"
 				:items="items"
+				content-orientation="vertical"
 			/>
 			<UiBetterColorModeButton />
 		</template>

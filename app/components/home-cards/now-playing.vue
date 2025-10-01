@@ -26,6 +26,7 @@ const {
 			</div>
 			<div v-if="nowPlaying.status === 'playing'" class="relative w-max shrink-0">
 				<img
+					decoding="async"
 					:src="nowPlaying.song?.art"
 					:alt="`Album cover of ${nowPlaying.song.album} by ${nowPlaying.song.artist}`"
 					width="70"

@@ -72,11 +72,13 @@ export default defineNuxtConfig({
 	},
 	runtimeConfig: {
 		openWeatherApiKey: "",
+		robloxApiKey: "",
 		public: {
 			// this is safe to expose, last.fm API key is basically useless without the secret for more private data
 			lastFmApiKey: "e5db5ab2552042441f5983be7144bb05",
 			lastFmUsername: "death_blows",
 			discordId: "304043360963002370",
+			robloxId: "883091636",
 		},
 	},
 });

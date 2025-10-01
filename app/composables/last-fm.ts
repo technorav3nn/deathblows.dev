@@ -5,7 +5,8 @@ export async function useLastFmRecentTracks() {
 	const { data: recentTracks } = await useFetch<LastFMResponseBody>(
 		`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastFmUsername}&api_key=${lastFmApiKey}&format=json`
 	);
-	return recentTracks;
+	const tracks = computed(() => recentTracks.value?.recenttracks.track?.splice(1));
+	return tracks;
 }
 
 /**

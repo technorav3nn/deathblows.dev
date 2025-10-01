@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
 	track: Track;
+	index: number;
 }>();
 </script>
 
@@ -12,6 +13,8 @@ defineProps<{
 		>
 			<img
 				:src="track?.image?.[3]?.['#text'] || '/placeholder-64.png'"
+				:loading="index < 6 ? 'eager' : 'lazy'"
+				decoding="async"
 				alt="Album Art"
 				width="100"
 				height="100"

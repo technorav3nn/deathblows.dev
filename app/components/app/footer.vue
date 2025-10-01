@@ -4,6 +4,7 @@
 		<div class="flex flex-row justify-between w-full">
 			<div class="flex gap-x-1.5 items-center text-sm">
 				<p>© {{ new Date().getFullYear() }} death_blows</p>
+				<UBadge variant="subtle" color="info" size="sm" class="rounded-full">BETA</UBadge>
 			</div>
 			<div class="flex gap-x-1.5 items-center text-sm">
 				<p>made with ❤️</p>
