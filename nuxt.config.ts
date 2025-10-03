@@ -27,10 +27,10 @@ export default defineNuxtConfig({
 			// 	d1_databases: [{ binding: "DB", database_name: "deathblows-dev", database_id: "335aa661-8a83-4c2e-bdb5-a2c5c4f2732d" }],
 			// },
 		},
-		prerender: {
-			routes: ["/"],
-			crawlLinks: true,
-		},
+		// prerender: {
+		// 	routes: ["/"],
+		// 	crawlLinks: true,
+		// },
 		experimental: {
 			tasks: true,
 			database: true,
@@ -65,6 +65,18 @@ export default defineNuxtConfig({
 	// 		headers: { "Cache-Control": "public, max-age=14400" },
 	// 	},
 	// },
+	routeRules: {
+		// ssr
+		"/music": { ssr: true },
+		"/games/roblox": { ssr: true },
+		// prerender
+		"/": { prerender: true },
+		"/about": { prerender: true },
+		"/projects": { prerender: true },
+		"/games": { prerender: true },
+		"/blog": { prerender: true },
+		"/blog/**": { prerender: true },
+	},
 	experimental: {
 		asyncContext: true,
 		typedPages: true,

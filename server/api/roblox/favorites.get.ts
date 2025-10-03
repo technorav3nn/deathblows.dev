@@ -62,7 +62,7 @@ export default defineEventHandler(
 						name: game.name,
 						description: game.description,
 						creator: game.creator.name,
-						url: `https://www.roblox.com/games/${game.id}/-`,
+						url: `https://www.roblox.com/games/${game.rootPlace.id}`,
 						...(thumbnail ? { thumbnail: thumbnail.imageUrl } : {}),
 					} satisfies FavoriteGame;
 				}),

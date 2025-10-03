@@ -7,6 +7,7 @@ useSeoMeta({
 	ogTitle: title,
 	ogDescription: description,
 });
+
 const {
 	global: { lastfm },
 } = useAppConfig();
