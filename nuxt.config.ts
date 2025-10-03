@@ -71,7 +71,6 @@ export default defineNuxtConfig({
 		"/games/roblox": { ssr: true },
 		// prerender
 		"/": { prerender: true },
-		"/about": { prerender: true },
 		"/projects": { prerender: true },
 		"/games": { prerender: true },
 		"/blog": { prerender: true },
