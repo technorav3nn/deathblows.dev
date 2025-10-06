@@ -80,7 +80,7 @@ useSeoMeta({
 							rel="noopener noreferrer"
 							block
 							icon="i-simple-icons-roblox"
-							class="col-span-2 dark:bg-[#222228] dark:hover:bg-[#27272d] dark:ring-[#2b2b33]"
+							class="col-span-2 dark:bg-[#222228] dark:hover:bg-[#27272d] dark:ring-[#363640]"
 							color="neutral"
 							variant="subtle"
 							size="sm"

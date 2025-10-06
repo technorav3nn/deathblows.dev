@@ -21,7 +21,7 @@ defineProps<{
 					decoding="async"
 					width="64"
 					height="64"
-					class="object-contain size-[64px] self-center shrink-0"
+					class="object-contain size-[64px] self-center shrink-0 rounded-md"
 				/>
 				<div
 					v-else
