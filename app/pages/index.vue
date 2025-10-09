@@ -22,6 +22,9 @@ useSeoMeta({
 				<li>discord bots</li>
 				<li>desktop apps</li>
 			</ul>
+			<NuxtLink to="/about" class="text-primary flex items-center gap-0.5 hover:underline mt-2 text-sm">
+				<span>more about me</span><UIcon name="i-lucide-arrow-right" />
+			</NuxtLink>
 		</section>
 		<section class="mt-6">
 			<div class="grid md:grid-cols-6 grid-cols-3 grid-rows-[repeat(4,100px)] md:grid-rows-[repeat(3,100px)] mt-8 gap-3">

@@ -67,10 +67,16 @@ const ringForStatus = computed(
 			</div>
 		</div>
 		<div v-if="status === 'success' && presence && presence?.activities.length > 0 && presence?.activities?.[0]?.name">
-			<p class="text-xs dark:text-text-toned/85 text-neutral-100 max-xs:truncate">
-				<UIcon name="i-lucide-gamepad-2" class="dark:text-text-toned/85 text-neutral-100 size-4 align-middle" />
-				playing <span class="font-semibold">{{ presence.activities[0].name }}</span>
-			</p>
+			<div class="text-xs dark:text-text-toned/85 text-neutral-100 max-xs:truncate">
+				<div v-if="presence.activities[0].name === 'Custom Status'" class="flex items-center gap-1.5">
+					<UIcon name="i-lucide-message-square-more" class="dark:text-text-toned/85 text-neutral-100 size-4 shrink-0 -ml-1" />
+					<span class="italic text-[11px]">{{ presence.activities[0].state }}</span>
+				</div>
+				<template v-else>
+					<UIcon name="i-lucide-gamepad-2" class="dark:text-text-toned/85 text-neutral-100 size-4 align-middle" />
+					playing <span class="font-semibold">{{ presence.activities[0].name }}</span>
+				</template>
+			</div>
 		</div>
 		<div v-else-if="status === 'success' && presence && presence?.activities.length === 0">
 			<p class="text-xs flex items-center gap-1 dark:text-text-toned/85 text-neutral-100 max-xs:truncate">

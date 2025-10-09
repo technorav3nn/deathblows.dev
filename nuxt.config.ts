@@ -75,6 +75,7 @@ export default defineNuxtConfig({
 		"/games": { prerender: true },
 		"/blog": { prerender: true },
 		"/blog/**": { prerender: true },
+		"/.well-known/**": { prerender: true },
 	},
 	experimental: {
 		asyncContext: true,

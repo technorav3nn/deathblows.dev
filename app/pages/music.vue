@@ -8,11 +8,16 @@ useSeoMeta({
 	ogDescription: description,
 });
 
+const links = [
+	{ label: "recents", to: "/music", icon: "i-lucide-clock", exact: true },
+	{ label: "top albums", to: "/music/top-albums", icon: "i-lucide-users" },
+	// { label: "top tracks", to: "/music/top", icon: "i-lucide-music" },
+	// { label: "top albums", to: "/music/albums", icon: "i-lucide-album" },
+];
+
 const {
 	global: { lastfm },
 } = useAppConfig();
-
-const { data: tracks, status } = await useLastFmRecentTracks();
 </script>
 
 <template>
@@ -24,17 +29,19 @@ const { data: tracks, status } = await useLastFmRecentTracks();
 		<UButton size="sm" :to="lastfm" target="_blank" rel="noopener noreferrer" class="mb-4" trailing-icon="i-lucide-external-link">
 			my last.fm
 		</UButton>
-		<USeparator class="mb-4" />
-		<p class="text-muted text-sm mb-2">now playing</p>
-		<div class="mb-6 mt-2">
-			<HomeCardsNowPlaying />
-		</div>
-		<p class="text-muted text-sm mb-2">recent tracks</p>
-		<div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3.5">
-			<template v-if="status === 'pending'">
-				<USkeleton v-for="n in 10" :key="n" class="w-full h-[220.5px] rounded-lg" />
-			</template>
-			<MusicTrack v-for="(track, index) in tracks" v-else :key="track.mbid" :index class="w-full h-full" :track="track" />
-		</div>
+		<section class="border-b border-neutral-200 dark:border-neutral-800 w-full mb-4">
+			<UNavigationMenu
+				variant="pill"
+				highlight
+				:ui="{
+					link: 'after:h-[2px] after:absolute after:-bottom-2 after:inset-x-0 ',
+					linkLabel: 'overflow-clip text-wrap',
+					linkLeadingIcon: 'size-[15px] sm:size-5 last-of-type:hidden',
+				}"
+				class="data-[orientation=vertical]:w-48"
+				:items="links"
+			/>
+		</section>
+		<NuxtPage />
 	</div>
 </template>

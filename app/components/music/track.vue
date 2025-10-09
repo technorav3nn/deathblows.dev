@@ -1,8 +1,12 @@
 <script setup lang="ts">
-defineProps<{
-	track: Track;
-	index: number;
-}>();
+withDefaults(
+	defineProps<{
+		track: Track | TopAlbum;
+		index: number;
+		type?: "album" | "track";
+	}>(),
+	{ type: "track" }
+);
 </script>
 
 <template>
@@ -21,15 +25,28 @@ defineProps<{
 				class="rounded-md rounded-b-none object-cover w-full h-full transition duration-100 group-hover:brightness-75"
 			/>
 			<div class="px-2.5 py-2">
-				<p class="text-xs font-semibold leading-4.5 truncate">
+				<p
+					class="text-xs font-semibold leading-4.5 truncate"
+					:class="[
+						type === 'album'
+							? index === 0
+								? ' text-yellow-600 dark:text-amber-400'
+								: index === 1
+									? 'text-slate-500 dark:text-blue-200'
+									: index === 2
+										? 'text-yellow-800 dark:text-yellow-600/90'
+										: ''
+							: '',
+					]"
+				>
 					{{ track.name }}
 				</p>
 				<p class="text-xs text-muted leading-4.5 truncate hover:underline">
-					{{ track.artist["#text"] }}
+					{{ type === "track" ? (track as Track).artist?.["#text"] : (track as TopAlbum).artist.name }}
 				</p>
-
-				<p v-if="track.album['#text']" class="text-[10.5px] text-muted leading-4.5 truncate hover:underline">
-					{{ track.album["#text"] }}
+				<p class="text-xs text-muted leading-4.5 truncate hover:underline">
+					{{ type === "track" ? (track as Track)?.album?.["#text"] : "" }}
+					{{ type === "album" ? (track as TopAlbum)?.playcount + " plays" : "" }}
 				</p>
 			</div>
 		</UCard>

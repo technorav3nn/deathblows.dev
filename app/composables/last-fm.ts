@@ -1,4 +1,4 @@
-export async function useLastFmRecentTracks() {
+export async function useRecentTracks() {
 	const {
 		public: { lastFmApiKey, lastFmUsername },
 	} = useRuntimeConfig();
@@ -6,6 +6,19 @@ export async function useLastFmRecentTracks() {
 		`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastFmUsername}&api_key=${lastFmApiKey}&format=json`,
 		{
 			transform: (d) => (d as unknown as LastFMResponseBody).recenttracks.track!.splice(1),
+		}
+	);
+	return fetchInfo;
+}
+
+export async function useTopAlbums(period: "overall" | "7day" | "1month" | "3month" | "6month" | "12month") {
+	const {
+		public: { lastFmApiKey, lastFmUsername },
+	} = useRuntimeConfig();
+	const fetchInfo = await useLazyFetch<TopAlbum[]>(
+		`https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${lastFmUsername}&api_key=${lastFmApiKey}&period=${period}&format=json`,
+		{
+			transform: (d) => (d as any).topalbums.album,
 		}
 	);
 	return fetchInfo;
@@ -22,7 +35,7 @@ export async function useLastFmRecentTracks() {
  * `use-last-fm` package, which is licensed under the MIT license.
  * Source: {@link https://github.com/alii/use-last-fm/blob/master/src/index.ts}
  */
-export function useLastFmNowPlaying(refetchInterval?: number, imageSize: TrackImage["size"] = "extralarge"): ComputedRef<State> {
+export function useNowPlaying(refetchInterval?: number, imageSize: TrackImage["size"] = "extralarge"): ComputedRef<State> {
 	const {
 		public: { lastFmApiKey, lastFmUsername },
 	} = useRuntimeConfig();
@@ -75,6 +88,24 @@ function parseSong(body: LastFMResponseBody | null, imageSize: TrackImage["size"
 	};
 }
 
+export interface TopAlbum {
+	artist: {
+		url: string;
+		name: string;
+		mbid: string;
+	};
+	image: {
+		size: string;
+		"#text": string;
+	}[];
+	mbid: string;
+	url: string;
+	playcount: string;
+	"@attr": {
+		rank: string;
+	};
+	name: string;
+}
 /**
  * Source for all the types: {@link https://github.com/alii/use-last-fm/blob/master/src/types.ts}
  */

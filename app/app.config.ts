@@ -30,7 +30,14 @@ export default defineAppConfig({
 			{ label: "music", href: "/music" },
 			{
 				label: "more",
-				children: [{ label: "games", href: "/games", description: "games i like to play!" }],
+				children: [
+					{
+						label: "about",
+						href: "/about",
+						description: "learn more abt me!",
+					},
+					{ label: "games", href: "/games", description: "games i like to play!" },
+				],
 			},
 		] satisfies NavigationMenuItem[],
 		projects: [

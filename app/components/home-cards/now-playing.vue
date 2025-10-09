@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const nowPlaying = useLastFmNowPlaying();
+const nowPlaying = useNowPlaying();
 const {
 	global: { lastfm },
 } = useAppConfig();
@@ -87,7 +87,7 @@ const {
 	width: 100%;
 	height: 100%;
 	z-index: 999;
-	opacity: 8%;
+	opacity: 9.5%;
 }
 
 .now-playing-anim {

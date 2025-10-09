@@ -10,5 +10,9 @@ export default defineContentConfig({
 				tags: z.array(z.string()),
 			}),
 		}),
+		pages: defineCollection({
+			type: "page",
+			source: "pages/*.md",
+		}),
 	},
 });
