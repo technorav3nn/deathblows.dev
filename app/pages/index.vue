@@ -22,7 +22,7 @@ useSeoMeta({
 				<li>discord bots</li>
 				<li>desktop apps</li>
 			</ul>
-			<NuxtLink to="/about" class="text-primary flex items-center gap-0.5 hover:underline mt-2 text-sm">
+			<NuxtLink to="/about" class="text-primary flex items-center gap-0.5 hover:underline mt-2 text-sm w-max">
 				<span>more about me</span><UIcon name="i-lucide-arrow-right" />
 			</NuxtLink>
 		</section>

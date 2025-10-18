@@ -9,9 +9,9 @@ in my free time, i like to:
 
 - play [games](/games) (mainly fps and arcade shooters, open world rpg's, and roblox ofc)
 - listen to [music](/music) (im a rocker)
-- code, a new project or updating my [projects](/projects) (obviously LOL)
+- code (obviously xD), whether its a new project or updating my existing [projects](/projects)
 - i like hanging out w/ my friends, irl and online
-- i enjoy the outdoors using my bike to explore new places, as well as going on hikes and walks (yes, i do go outside)
+- i enjoy the outdoors, exploring new places, biking, as well as going on hikes and walks (yes, i do go outside)
 
 **fun fact about me:** i LOVE arizona iced tea, like omg its so good. my favorites are sweet tea, peach tea, half n half and lemon tea. KEEP ARIZONA IN BUSINESS PLS, AND PLS KEEP IT 99¢!
 

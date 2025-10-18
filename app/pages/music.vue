@@ -10,7 +10,7 @@ useSeoMeta({
 
 const links = [
 	{ label: "recents", to: "/music", icon: "i-lucide-clock", exact: true },
-	{ label: "top albums", to: "/music/top-albums", icon: "i-lucide-users" },
+	{ label: "top albums", to: "/music/top-albums", icon: "i-lucide-images" },
 	// { label: "top tracks", to: "/music/top", icon: "i-lucide-music" },
 	// { label: "top albums", to: "/music/albums", icon: "i-lucide-album" },
 ];

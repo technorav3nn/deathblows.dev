@@ -29,7 +29,7 @@ const items = computed<NavigationMenuItem[]>(() =>
 		<template #title>
 			<div class="flex gap-x-2.5 items-center">
 				<img src="/profile-pic-circle.webp" alt="Profile picture" class="rounded-full w-10 h-10" />
-				<p class="text-lg font-bold" to="/">death_blows</p>
+				<p class="text-base font-bold" to="/">death_blows</p>
 			</div>
 		</template>
 

@@ -24,6 +24,39 @@ export async function useTopAlbums(period: "overall" | "7day" | "1month" | "3mon
 	return fetchInfo;
 }
 
+export async function useTrackInfo(artist: string, track: string) {
+	const fetchInfo = await useLazyFetch<TrackOrAlbumInfo>(
+		`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=${useRuntimeConfig().public.lastFmApiKey}&autocorrect=1&format=json`,
+		{
+			transform: (d) => {
+				const track = (d as any).track;
+				return {
+					listeners: track.listeners,
+					playcount: track.playcount,
+					toptags: track.toptags,
+					duration: track.duration,
+				} as TrackOrAlbumInfo;
+			},
+			query: { artist, track },
+		}
+	);
+	return fetchInfo;
+}
+
+export async function useAlbumInfo(artist: string, album: string) {
+	const fetchInfo = await useLazyFetch<TrackOrAlbumInfo>(
+		`https://ws.audioscrobbler.com/2.0/?method=album.getInfo&api_key=${useRuntimeConfig().public.lastFmApiKey}&format=json`,
+		{
+			transform: (d) => {
+				const album = (d as any).album;
+				return { listeners: album.listeners, playcount: album.playcount, toptags: album.tags } as TrackOrAlbumInfo;
+			},
+			query: { artist, album },
+		}
+	);
+	return fetchInfo;
+}
+
 /**
  * Copyright 2020 Alistair Smith
  *
@@ -93,6 +126,7 @@ export interface TopAlbum {
 		url: string;
 		name: string;
 		mbid: string;
+		"#text": string;
 	};
 	image: {
 		size: string;
@@ -272,6 +306,18 @@ export interface LastFMResponseBody {
 	 * All tracks
 	 */
 	recenttracks: RecentTracks;
+}
+
+export interface TrackOrAlbumInfo {
+	listeners: string;
+	playcount: string;
+	toptags: {
+		tag: {
+			name: string;
+			url: string;
+		}[];
+	};
+	duration?: number;
 }
 
 export type State =
